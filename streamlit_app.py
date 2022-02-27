@@ -247,7 +247,7 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     _CWD = os.getcwd() 
     #filepath=os.path.join(_CWD,'model','lightgbm.pkl')
     st.write(_CWD,type(_CWD))
-    st.write(filepath,type(filepath))
+    #st.write(filepath,type(filepath))
     if not os.path.isfile(_CWD):
         url = r'https://github.com/prafulbatra/Fraudulent-Provider-Prediction/raw/main/Data/lightgbm.pkl'
         response = requests.get(url)													
