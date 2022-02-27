@@ -230,7 +230,7 @@ def feature_engineering(test):
            'ChronicCond_Osteoporasis', 'ChronicCond_rheumatoidarthritis',
            'ChronicCond_stroke','ClaimMinusAdmitDays'],axis=1,inplace=True)
     
-    
+    test['PotentialFraud']=0
     return test
 
 #######################################################################################################################
