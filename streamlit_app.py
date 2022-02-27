@@ -246,13 +246,14 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True,html=False)
     _CWD = os.getcwd() 
     lightgbm_file=os.path.join(_CWD,'data','lightgbm.pkl')
-    if not os.path.isfile(lightgbm_file):					
+    st.write(lightgbm_file)
+    if not os.path.isfile(lightgbm_file):
         url = r'https://github.com/prafulbatra/Fraudulent-Provider-Prediction/raw/main/Data/lightgbm.pkl'
         resp = requests.get(url)													
-        with open(lightgbm_file, 'wb') as fopen:						
+        with open(lightgbm_file, 'wb') as fopen:
             fopen.write(resp.content)										
     with open(lightgbm_file, 'rb') as file:
-    	    lightgbm=load_model(file)
+        lightgbm=load_model(file)
     predictions=predict_model(lightgbm,data=test2)
     st.write(predictions)
 #########################################################################################################################
