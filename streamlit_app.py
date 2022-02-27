@@ -253,7 +253,7 @@ def predictions(beneficiary,inpatient,outpatient,provider):
         response = requests.get(url)													
         with open(filepath, 'wb') as fopen:
             fopen.write(response.content)
-    st.write(os.listdir(filepath))
+    os.listdir(filepath)
     with open(filepath, 'rb') as file:
         lightgbm=load_model(file)
     predictions=predict_model(lightgbm,data=test2)
