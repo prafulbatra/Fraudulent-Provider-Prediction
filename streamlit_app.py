@@ -252,7 +252,8 @@ def predictions(beneficiary,inpatient,outpatient,provider):
         url = r'https://github.com/prafulbatra/Fraudulent-Provider-Prediction/raw/main/Data/lightgbm.pkl'
         response = requests.get(url)													
         with open(filepath, 'wb') as fopen:
-            fopen.write(response.content)										
+            fopen.write(response.content)
+    st.write(os.listdir(filepath))
     with open(filepath, 'rb') as file:
         lightgbm=load_model(file)
     predictions=predict_model(lightgbm,data=test2)
