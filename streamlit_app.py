@@ -246,8 +246,8 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True,html=False)
     _CWD = os.getcwd() 
     lightgbm_file=os.path.join(_CWD,'data','lightgbm.pkl')
-    with open(final_RFC_FE_model_file, 'rb') as file:
-    	    lightgbm=load_model('lightgbm')
+    with open(lightgbm_file, 'rb') as file:
+    	    lightgbm=load_model(file)
     predictions=predict_model(lightgbm,data=test2)
     st.write(predictions)
 #########################################################################################################################
