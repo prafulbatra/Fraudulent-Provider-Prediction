@@ -242,7 +242,7 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     test=patientDetails.merge(provider,on='Provider',how='inner')    #merges previous dataframe with provider lables.
     test1=preprocessing(test)
     test2=feature_engineering(test1)
-    setup=setup(data=test2,target='PotentialFraud', session_id=100,silent=True)
+    exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True)
     _CWD = os.getcwd() 
     lightgbm_file=os.path.join(_CWD,'data','lightgbm.pkl')
     with open(final_RFC_FE_model_file, 'rb') as file:
