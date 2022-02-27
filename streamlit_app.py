@@ -246,6 +246,7 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True,html=False)
     _CWD = os.getcwd() 
     filepath=os.path.join(_CWD,'model')
+    os.mkdir(filepath)
     st.write(_CWD,type(_CWD))
     st.write(filepath,type(filepath))
     if not os.path.isfile(filepath):
