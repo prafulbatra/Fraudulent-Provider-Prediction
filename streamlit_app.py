@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from pycaret.classification import *
+import os
+import requests
 
 ##########################################################################################################
 def file_check(uploaded_file1,uploaded_file2,uploaded_file3,uploaded_file4):
@@ -240,8 +242,11 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     test=patientDetails.merge(provider,on='Provider',how='inner')    #merges previous dataframe with provider lables.
     test1=preprocessing(test)
     test2=feature_engineering(test1)
-    setup1=setup(data=test2,target='PotentialFraud', session_id=100,silent=True)
-    lightgbm=load_model('lightgbm')
+    setup=setup(data=test2,target='PotentialFraud', session_id=100,silent=True)
+    _CWD = os.getcwd() 
+    lightgbm_file=os.path.join(_CWD,'data','lightgbm.pkl')
+    with open(final_RFC_FE_model_file, 'rb') as file:
+	    lightgbm=load_model('lightgbm')
     predictions=predict_model(lightgbm,data=test2)
     st.write(predictions)
 #########################################################################################################################
