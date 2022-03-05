@@ -272,7 +272,7 @@ uploaded_file2=st.file_uploader(label='Upload Inpatient excel file',key=2)
 uploaded_file3=st.file_uploader(label='Upload Outpatient excel file',key=3)
 uploaded_file4=st.file_uploader(label='Upload Provider excel file',key=4)
 
-with st.form("Fraud Prediction",clear_on_submit):
+with st.form("Fraud Prediction",clear_on_submit=True):
     if ((uploaded_file1 is not None)&(uploaded_file2 is not None)&(uploaded_file3 is not None)&(uploaded_file4 is not None)):
         if(file_check(uploaded_file1,uploaded_file2,uploaded_file3,uploaded_file4)):
             st.write("Now , you are all set for prediction. Click Submit Button to get the results")
