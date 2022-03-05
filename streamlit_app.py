@@ -1,5 +1,5 @@
 import streamlit as st
-import prediction_module
+from prediction_module import file_check,preprocessing,feature_engineering
 
 #########################################################################################################################
 
