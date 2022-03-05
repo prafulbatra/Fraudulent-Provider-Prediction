@@ -256,5 +256,6 @@ def predictions(beneficiary,inpatient,outpatient,provider):                  #Th
             fopen.write(response.content)
     #with open(filepath, 'rb') as file:
     lightgbm=load_model('lightgbm')
-    predictions=predict_model(lightgbm,data=test2)
-    st.write(predictions)
+    df=predict_model(lightgbm,data=test2)
+    
+    return df
