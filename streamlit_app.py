@@ -5,9 +5,6 @@ import os
 import requests
 from prediction_module import file_check,preprocessing,feature_engineering,predictions
 
-#########################################################################################################################
-
-#########################################################################################################################
 
 st.set_page_config(page_title="Claim Prediction")         # webpage title
 st.title("This page predicts if a Healthcare claim is fraudulent or not")
@@ -36,7 +33,8 @@ if ((uploaded_file1 is not None)&(uploaded_file2 is not None)&(uploaded_file3 is
         provider=pd.read_csv(uploaded_file4)
         with st.form("Fraud Prediction",clear_on_submit=True):
             if st.form_submit_button("Submit"):
-                predictions(beneficiary,inpatient,outpatient,provider)
+                results=predictions(beneficiary,inpatient,outpatient,provider)
+                st.write(results)
     else:
         st.write('Upload correct file')
 
