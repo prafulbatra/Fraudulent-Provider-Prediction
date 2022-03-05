@@ -283,7 +283,8 @@ if ((uploaded_file1 is not None)&(uploaded_file2 is not None)&(uploaded_file3 is
         outpatient=pd.read_csv(uploaded_file3)
         uploaded_file4.seek(0)
         provider=pd.read_csv(uploaded_file4)
-        predictions(beneficiary,inpatient,outpatient,provider)
+        if st.form_submit_button("Submit"):
+            predictions(beneficiary,inpatient,outpatient,provider)
     else:
         st.write('Upload correct file')
 
