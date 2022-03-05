@@ -3,8 +3,10 @@ import pandas as pd
 from pycaret.classification import *
 import os
 import requests
+import runtime
 
 ##########################################################################################################
+'''
 def file_check(uploaded_file1,uploaded_file2,uploaded_file3,uploaded_file4):
     beneficiary = pd.read_csv(uploaded_file1)
     inpatient=pd.read_csv(uploaded_file2)
@@ -257,7 +259,7 @@ def predictions(beneficiary,inpatient,outpatient,provider):
     predictions=predict_model(lightgbm,data=test2)
     st.write(predictions)
 #########################################################################################################################
-
+'''
 st.set_page_config(page_title="Claim Prediction")         # webpage title
 st.title("This page predicts if a Healthcare claim is fraudulent or not")
 
