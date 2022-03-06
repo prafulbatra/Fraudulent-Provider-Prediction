@@ -245,17 +245,15 @@ def predictions(beneficiary,inpatient,outpatient,provider):                  #Th
     test1=preprocessing(test)
     test2=feature_engineering(test1)
     #st.write(test2)
-    exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True,html=False)
-    _CWD = os.getcwd() 
-    #filepath=os.path.join(_CWD,'model','lightgbm.pkl')
-    #st.write(filepath,type(filepath))
-    if not os.path.isfile(_CWD):
-        url = r'https://github.com/prafulbatra/Fraudulent-Provider-Prediction/raw/main/Data/lightgbm.pkl'
+    exp=setup(data=test2,target='PotentialFraud', session_id=100,silent=True,html=False)   #calls the setup function
+    _CWD = os.getcwd()                                                                     #gets the current workign directory on streamlit platform
+    if not os.path.isfile(_CWD):                                                           #checks if there is a file in current workign directory
+        url = r'https://github.com/prafulbatra/Fraudulent-Provider-Prediction/raw/main/Data/lightgbm.pkl'        
         response = requests.get(url)													
-        with open(os.path.join(_CWD,'lightgbm.pkl'), 'wb') as fopen:
-            fopen.write(response.content)
+        with open(os.path.join(_CWD,'lightgbm.pkl'), 'wb') as fopen: 
+            fopen.write(response.content)                                                  #downloads the lightgbm pickle file from github into current working directory  
     #with open(filepath, 'rb') as file:
-    lightgbm=load_model('lightgbm')
-    df=predict_model(lightgbm,data=test2)
+    lightgbm=load_model('lightgbm')                                                        #loads the lighgbm model 
+    df=predict_model(lightgbm,data=test2)                                                  #does the predictions on preprocessed and feature engineered test data.
     
     return df
