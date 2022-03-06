@@ -11,8 +11,8 @@ Directory structure:
 
 Fraudulent-Provider-Prediction
 
-├── streamlit_app.py     Main file to run the streamlit app
-
+├── streamlit_app.py       --Main file to run the streamlit app
+├── prediction_module.py   --contains functions for file_check , preprocessing , feature engineering and for predictions
 ├── requirements.txt     contains Dependencies which gets installed on Streamlit platform automatically
 
 ├── README.md
